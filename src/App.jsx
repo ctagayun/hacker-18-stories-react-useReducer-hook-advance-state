@@ -1,5 +1,8 @@
 /*================================================================
  React Advance State Reducer Hook
+   see: https://www.robinwieruch.de/react-state-usereducer-usestate-usecontext/
+
+   How to useReducer in React: https://www.robinwieruch.de/react-usereducer-hook/
    Task: 
 
     1. In this section, we will move the stateful 'STORIES' from React's 
@@ -7,7 +10,7 @@
   to manage the "stories and its state transitions "in a reducer. Reducer
   enables sophisticated state management.
     
-    2. Use reducer to manage state if there are multiple states related
+    2. Use reducer to msnage state if there are multiple states related
   to one domain that are related to each other. For example:
        - stories (see )
        - isLogging
@@ -118,6 +121,7 @@ const getAsyncStories = () =>
  //   3. Based on these two arguments the reducer always returns 
  //     a new state
  
+ //storiesReducer function is the first parameter of useReducer hook.
  const storiesReducer = (state, action) => { // A
   switch (action.type) {  //(B)
     case 'SET_STORIES':   
@@ -183,8 +187,8 @@ const App = () => {
 
   //Same as in React.useState, the reducer initializes "stories" with an empty list
   const [stories, dispatchStories] = React.useReducer(
-      storiesReducer, //this the reducer function defined above.  
-      []  //We want an empty list [] for the initial state.  
+      storiesReducer, //parameter 1 -this the reducer function defined above.  
+      []  //parameter 2 is the initial state. In this case an empty array
     );
     //Instead of setting the state explicitly (like what the 
     //useState updater function 'setStories' does) the
